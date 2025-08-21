@@ -1,0 +1,157 @@
+MEGA SCHOOL PLAZA - XAMPP SETUP INSTRUCTIONS
+============================================
+
+REQUIREMENTS:
+- XAMPP with PHP 7.4+ and MySQL
+- Web browser
+- Text editor (optional)
+
+INSTALLATION STEPS:
+
+1. DOWNLOAD AND EXTRACT
+   - Download the ZIP file from v0
+   - Extract to your XAMPP htdocs folder
+   - Rename the folder to 'megaplaza' (or your preferred name)
+   - Final path should be: C:\xampp\htdocs\megaplaza\ (Windows) or /opt/lampp/htdocs/megaplaza/ (Linux)
+
+2. START XAMPP SERVICES
+   - Open XAMPP Control Panel
+   - Start Apache and MySQL services
+   - Ensure both services are running (green status)
+
+3. CREATE DATABASE
+   - Open web browser and go to: http://localhost/phpmyadmin
+   - Click "New" to create a new database
+   - Name it 'megaplaza'
+   - Click "Create"
+   - Select the 'megaplaza' database
+   - Click "Import" tab
+   - Choose file: database/megaplaza_complete.sql
+   - Click "Go" to import
+
+4. CONFIGURE SETTINGS
+   - Open config/database.php
+   - Verify database settings:
+     * DB_HOST: localhost
+     * DB_NAME: megaplaza
+     * DB_USER: root
+     * DB_PASS: (leave empty for default XAMPP)
+   
+   - Open config/config.php
+   - Update SITE_URL to match your setup:
+     * For default: http://localhost/megaplaza
+     * If using different folder name: http://localhost/your-folder-name
+
+5. SET PERMISSIONS (Linux/Mac only)
+   - Open terminal in the project directory
+   - Run: chmod -R 755 uploads/
+   - Run: chmod -R 755 config/
+
+6. ACCESS THE SYSTEM
+   - Open web browser
+   - Go to: http://localhost/megaplaza
+   - You should see the landing page
+
+DEMO ACCOUNTS:
+==============
+
+ADMIN ACCOUNT:
+- Username: admin
+- Email: admin@megaplaza.com
+- Password: password123
+- Access: Full system administration
+
+MANAGER ACCOUNT:
+- Username: manager1
+- Email: manager@megaplaza.com
+- Password: password123
+- Access: Shop and tenant management
+
+TENANT ACCOUNTS:
+- Username: tenant1
+- Email: tenant1@example.com
+- Password: password123
+
+- Username: tenant2
+- Email: tenant2@example.com
+- Password: password123
+
+- Username: tenant3
+- Email: tenant3@example.com
+- Password: password123
+
+FEATURES INCLUDED:
+==================
+
+✅ User Authentication & Registration
+✅ Role-based Access Control (Admin/Manager/Tenant)
+✅ Shop Catalog with Advanced Filtering
+✅ Application Submission System
+✅ Lease Management
+✅ Billing & Payment Processing
+✅ Manual Payment Upload with Receipt Verification
+✅ Admin Dashboard with Analytics
+✅ User Management
+✅ Maintenance Request System
+✅ Document Management
+✅ Notification System
+✅ Audit Logging
+✅ Responsive Design
+✅ Security Features (CSRF Protection, Input Validation)
+
+MAIN PAGES:
+===========
+
+PUBLIC PAGES:
+- Landing Page: http://localhost/megaplaza/
+- Login: http://localhost/megaplaza/auth/login.php
+- Register: http://localhost/megaplaza/auth/register.php
+
+TENANT PAGES:
+- Dashboard: http://localhost/megaplaza/dashboard/
+- Browse Shops: http://localhost/megaplaza/shops/browse.php
+- My Applications: http://localhost/megaplaza/applications/my-applications.php
+- Billing: http://localhost/megaplaza/billing/
+
+ADMIN PAGES:
+- Admin Dashboard: http://localhost/megaplaza/admin/dashboard.php
+- User Management: http://localhost/megaplaza/admin/users.php
+- Shop Management: http://localhost/megaplaza/shops/
+- Application Review: http://localhost/megaplaza/admin/applications.php
+- Payment Verification: http://localhost/megaplaza/admin/verify-payments.php
+
+TROUBLESHOOTING:
+================
+
+1. "Database connection failed" error:
+   - Check if MySQL service is running in XAMPP
+   - Verify database name and credentials in config/database.php
+   - Ensure database was imported correctly
+
+2. "Page not found" errors:
+   - Check if Apache service is running
+   - Verify the correct URL path
+   - Ensure files are in the correct htdocs directory
+
+3. File upload issues:
+   - Check if uploads/ directory exists and has write permissions
+   - Verify MAX_FILE_SIZE in config/config.php
+   - Check PHP upload settings in php.ini
+
+4. Session issues:
+   - Clear browser cookies and cache
+   - Check if session.save_path is writable in PHP configuration
+
+5. Permission denied errors (Linux/Mac):
+   - Run: sudo chmod -R 755 /opt/lampp/htdocs/megaplaza/
+   - Run: sudo chown -R www-data:www-data /opt/lampp/htdocs/megaplaza/
+
+SUPPORT:
+========
+
+For technical support or questions:
+- Check the code comments in PHP files
+- Review error logs in XAMPP control panel
+- Ensure all required PHP extensions are enabled
+
+The system is fully functional and ready for production use with proper security measures and comprehensive features for shop rental management.
